@@ -1,0 +1,13 @@
+~$*
+*.bak
+*.pdb
+
+nb-configuration.xml
+
+.project
+
+.settings
+
+.classpath
+
+target
