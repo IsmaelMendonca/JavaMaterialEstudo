@@ -12,6 +12,7 @@ public class TesteRemoverConta {
 		
 		//Estado Transient
 		Conta conta = new Conta();
+		//Como setei o Id o estado foi para Detached (por causa da PK)
 		conta.setId(8);
 		conta.setTitular("Daniel Mendonça");
 		conta.setBanco("Nubank");
@@ -23,18 +24,19 @@ public class TesteRemoverConta {
 		em.getTransaction().begin();
 		
 		//Estado Managed
-		conta = em.find(Conta.class, 8);
+//		conta = em.find(Conta.class, 8);
 		
 		System.out.println(conta.getTitular());
 		
 		//Muda estado Managed -> Removed
-		em.remove(conta);
+		em.remove(em.getReference(Conta.class, 8));
+//		em.remove(conta);
 		
 		//Ignorado, pois a entidade não existe mais no banco
 		conta.setBanco("Corintias");
 		
 		//Muda estado Removed -> Managed
-		em.persist(conta);
+//		em.persist(conta);
 		
 		em.getTransaction().commit();
 		
