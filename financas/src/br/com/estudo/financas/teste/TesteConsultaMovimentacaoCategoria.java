@@ -14,8 +14,7 @@ public class TesteConsultaMovimentacaoCategoria {
 		EntityManager em = new JPAUtils().getEntityManager();
 
 		try {
-			em.getTransaction().begin();
-			
+			@SuppressWarnings("deprecation")
 			Categoria categoria = new Categoria();
 			categoria.setId(1);
 			
@@ -30,8 +29,6 @@ public class TesteConsultaMovimentacaoCategoria {
 				System.out.println("Descricao: " + x.getDescricao());
 				System.out.println("Conta.id: " + x.getConta().getId());
 			});
-			
-			em.getTransaction().commit();
 		} finally {
 			em.close();
 		}

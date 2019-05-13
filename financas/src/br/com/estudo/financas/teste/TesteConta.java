@@ -1,10 +1,8 @@
 package br.com.estudo.financas.teste;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 
-import br.com.estudo.financas.modelo.*;
+import br.com.estudo.financas.modelo.Conta;
 import br.com.estudo.financas.util.JPAUtils;
 
 public class TesteConta {

@@ -1,9 +1,13 @@
 package br.com.estudo.financas.modelo;
 
+import java.util.List;
+
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Conta {
@@ -15,6 +19,9 @@ public class Conta {
 	private String banco;
 	private String agencia;
 	private String numero;
+	
+	@OneToMany(mappedBy = "conta", fetch = FetchType.EAGER)
+	private List<Movimentacao> movimentacoes;
 	
 	public Integer getId() {
 		return id;
@@ -45,5 +52,11 @@ public class Conta {
 	}
 	public void setNumero(String numero) {
 		this.numero = numero;
+	}
+	public List<Movimentacao> getMovimentacoes() {
+		return movimentacoes;
+	}
+	public void setMovimentacoes(List<Movimentacao> movimentacoes) {
+		this.movimentacoes = movimentacoes;
 	}
 }

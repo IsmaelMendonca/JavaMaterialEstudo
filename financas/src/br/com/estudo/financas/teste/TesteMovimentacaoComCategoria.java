@@ -30,7 +30,11 @@ public class TesteMovimentacaoComCategoria {
 		movimentacao1.setConta(conta);
 
 		Movimentacao movimentacao2 = new Movimentacao();
-		movimentacao2.setData(Calendar.getInstance());
+		
+		Calendar amanha = Calendar.getInstance();
+		amanha.add(Calendar.DAY_OF_MONTH, 1);
+		
+		movimentacao2.setData(amanha);
 		movimentacao2.setDescricao("Viagem ao Afeganistão");
 		movimentacao2.setTipo(TipoMovimentacaoEnum.SAIDA);
 		movimentacao2.setValor(new BigDecimal("2250.0"));
