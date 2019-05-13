@@ -11,7 +11,10 @@
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 
         <!-- Aqui são listadas todas as entidades -->
+        <class>br.com.estudo.financas.modelo.Categoria</class>
+        <class>br.com.estudo.financas.modelo.Cliente</class>
         <class>br.com.estudo.financas.modelo.Conta</class>
+        <class>br.com.estudo.financas.modelo.Movimentacao</class>
 
         <properties>    
             <!-- Propriedades JDBC -->

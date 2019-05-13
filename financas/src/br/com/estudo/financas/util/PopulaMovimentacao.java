@@ -21,7 +21,6 @@ public class PopulaMovimentacao {
 		Conta conta4 = manager.find(Conta.class,4);
 		Conta conta5 = manager.find(Conta.class,5);
 
-
 		// Movimentacoes da conta1
 		Movimentacao movimentacao1 = new Movimentacao();
 		Movimentacao movimentacao2 = new Movimentacao();
