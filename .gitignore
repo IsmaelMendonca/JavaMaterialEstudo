@@ -1,13 +1,55 @@
-~$*
+.metadata
+bin/
+tmp/
+*.tmp
 *.bak
-*.pdb
+*.swp
+*~.nib
+local.properties
+.settings/
+.loadpath
+.recommenders
 
-nb-configuration.xml
+# External tool builders
+.externalToolBuilders/
 
-.project
+# Locally stored "Eclipse launch configurations"
+*.launch
 
-.settings
+# PyDev specific (Python IDE for Eclipse)
+*.pydevproject
 
-.classpath
+# CDT-specific (C/C++ Development Tooling)
+.cproject
 
-target
+# CDT- autotools
+.autotools
+
+# Java annotation processor (APT)
+.factorypath
+
+# PDT-specific (PHP Development Tools)
+.buildpath
+
+# sbteclipse plugin
+.target
+
+# Tern plugin
+.tern-project
+
+# TeXlipse plugin
+.texlipse
+
+# STS (Spring Tool Suite)
+.springBeans
+
+# Code Recommenders
+.recommenders/
+
+# Annotation Processing
+.apt_generated/
+
+# Scala IDE specific (Scala & Java development for Eclipse)
+.cache-main
+.scala_dependencies
+.worksheet
