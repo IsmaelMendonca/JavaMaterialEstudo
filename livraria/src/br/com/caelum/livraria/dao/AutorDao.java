@@ -4,42 +4,41 @@ import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.Stateless;
-import javax.inject.Inject;
+import javax.ejb.TransactionAttribute;
+import javax.ejb.TransactionAttributeType;
+import javax.ejb.TransactionManagement;
+import javax.ejb.TransactionManagementType;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
 import br.com.caelum.livraria.modelo.Autor;
 
 @Stateless
+@TransactionManagement(TransactionManagementType.CONTAINER) //opcional
 public class AutorDao {
 
-	@Inject
-	private Banco banco;
-
+	@PersistenceContext
+	private EntityManager em;
+	
 	@PostConstruct
 	void aposCriacao() {
 		System.out.println("[INFO] AutorDao foi criado.");
 	}
 	
+	@TransactionAttribute(TransactionAttributeType.REQUIRED) //opcional
 	public void salva(Autor autor) {
 		System.out.println("[INFO] Salvando o Autor " + autor.getNome());
 		
-//		try {
-//			Thread.sleep(20000); //20s
-//		} catch (InterruptedException e) {
-//			e.printStackTrace();
-//		} 
-		
-		banco.save(autor);
+		em.persist(autor);
 		
 		System.out.println("[INFO] Salvou o Autor " + autor.getNome());
 	}
 	
 	public List<Autor> todosAutores() {
-		return banco.listaAutores();
+		return em.createQuery("SELECT a FROM Autor a", Autor.class).getResultList();
 	}
 
 	public Autor buscaPelaId(Integer autorId) {
-		Autor autor = this.banco.buscaPelaId(autorId);
-		return autor;
+		return em.find(Autor.class, autorId);
 	}
-	
 }
